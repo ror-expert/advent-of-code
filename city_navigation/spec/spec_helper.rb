@@ -2,7 +2,7 @@ require "bundler/setup"
 require "city_navigation"
 require "city_navigation/city_grid"
 require "city_navigation/explorer"
-require "city_navigation/cli"
+require "city_navigation/simulator"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
