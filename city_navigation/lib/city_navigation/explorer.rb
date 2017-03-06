@@ -64,7 +64,7 @@ module CityNavigation
         [@east, @north  -1]
       when "EAST"
         [@east + 1, @north]
-      when "SOUTH"
+      when "WEST"
         [@east - 1, @north]
       end
     end
