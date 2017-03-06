@@ -7,7 +7,17 @@ module CityNavigation
       @simulator = CityNavigation::Simulator.new(city_grid)
     end
 
+    def load_commands(commands_file)
+      File.readlines(commands_file).map do |command|
+        CityNavigation::Command.process(command)
+      end
+    end
+
+    def run(commands)
+      commands.each do |command, *args|
+        simulator.send(command, *args)
+      end
+    end
 
   end
-
 end
