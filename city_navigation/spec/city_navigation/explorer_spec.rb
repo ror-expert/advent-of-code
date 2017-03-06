@@ -1,22 +1,24 @@
 require "spec_helper"
 
-# describe CityNavigation::Explorer do
-#
-#   subject {CityNavigation::Explorer.new}
-#
-#   # it "starts exactly at the centre of the city" do
-#   #
-#   # end
-#
-#   it "moves 3 blocks east" do
-#     3.times { subject.move_east }
-#     expect(subject.east).to eq(3)
-#   end
-#
-#   it "moves 4 blocks east" do
-#     4.times { subject.move_east }
-#     expect(subject.east).to eq(4)
-#   end
+describe CityNavigation::Explorer do
+
+  subject {CityNavigation::Explorer.new}
+
+  it "starts exactly at the centre of the city" do
+    expect(subject.east).to eq(0)
+    expect(subject.north).to eq(0)
+    expect(subject.direction).to eq("NORTH")
+  end
+
+  it "moves 3 blocks east" do
+    3.times { subject.move_east }
+    expect(subject.east).to eq(3)
+  end
+
+  it "moves 4 blocks east" do
+    4.times { subject.move_east }
+    expect(subject.east).to eq(4)
+  end
 #
 #   it "moves 3 blocks west" do
 #     3.times { subject.move_west }
@@ -140,4 +142,4 @@ require "spec_helper"
 #     end
 #   end
 #
-# end
+end
