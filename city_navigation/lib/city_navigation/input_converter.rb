@@ -8,15 +8,23 @@ module CityNavigation
     def convert_directions
 
       raw_input = @raw_input
+      directions = ["R", "L"]
 
+      preconverted_split_raw_input = Array.new
       converted_split_raw_input = Array.new
       converted_city_directions = ["PLACE 0,0,NORTH"]
 
-      # split_raw_input = raw_input.split(/\s*\s*/)
-      split_raw_input = raw_input.split(",")
+      split_raw_input = raw_input.split(%r{,\s*})
       split_raw_input.push(",")
 
-      split_raw_input.each do |element|
+      split_raw_input.each do |item|
+        if item.start_with?("R", "L")
+          preconverted_split_raw_input.push(item[0])
+          preconverted_split_raw_input.push(item[1..-1])
+        end
+      end
+
+      preconverted_split_raw_input.each do |element|
         if element.to_i == 0
           converted_split_raw_input.push(element)
         else
@@ -28,29 +36,26 @@ module CityNavigation
       print converted_split_raw_input
       puts ""
 
+      directions = ["R", "L"]
+
       converted_split_raw_input.each do |element|
-        if element.include?("R")
-          # puts "This is a right turn"
-          converted_city_directions.push("RIGHT")
-        elsif element.include?("L")
-          # puts "This is a left turn"
-          converted_city_directions.push("LEFT")
+
+        if element.class == String && directions.include?(element)
+          case element
+          when "R"
+            converted_city_directions.push("RIGHT")
+          when "L"
+            converted_city_directions.push("LEFT")
+          end
         elsif element.class == Integer
-          # puts "This is the element: #{element}"
+          puts "This is the element: #{element}"
           temp_array = Array.new(element) {"MOVE"}
           temp_array.each do |move_string|
             converted_city_directions.push(move_string)
           end
-        elsif element == ","
           converted_city_directions.push("REPORT")
-        else
         end
       end
-
-      puts "here are the converted_city_directions"
-      print converted_city_directions
-      puts ""
-
 
       output_file = File.absolute_path("converted_city_directions.txt")
 
