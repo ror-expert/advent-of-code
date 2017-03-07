@@ -3,7 +3,7 @@ module CityNavigation
     attr_reader :simulator
 
     def initialize()
-      city_grid = CityNavigation::CityGrid.new(1000,1000)
+      city_grid = CityNavigation::CityGrid.new(5000,5000)
       @simulator = CityNavigation::Simulator.new(city_grid)
     end
 

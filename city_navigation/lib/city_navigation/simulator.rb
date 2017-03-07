@@ -34,7 +34,10 @@ module CityNavigation
     def report
       return unless explorer_placed?
       position = explorer.report
-      puts "Explorer is currently at (#{position[:east]}, #{position[:north]}) and is facing #{position[:direction]}"
+      puts "Explorer is currently at (#{position[:east]}, #{position[:north]}) and is facing #{position[:direction]}"    
+      final_position = explorer.report
+      distance_from_start = final_position[:east].abs + final_position[:north].abs
+      puts "Easter Bunny HQ is #{distance_from_start} blocks away"
     end
 
     def invalid(command)
