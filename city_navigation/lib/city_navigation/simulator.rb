@@ -51,7 +51,7 @@ module CityNavigation
         puts "You have been to this location before: #{current_location}"
         puts "You have been here this many times: #{@locations_visited.count(current_location)}"
       else
-        puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times"
+        puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times."
       end
 
       final_position = explorer.report
