@@ -62,11 +62,11 @@ describe KeypadNavigation::Simulator do
       subject.turn_right
     end
 
-    it "tells the explorer to report" do
-      expect(explorer).to receive(:report) { { east: 3, north: 3, direction: "NORTH" } }
-      message = "Explorer is currently at (3, 3) and is facing NORTH\n"
-      expect { subject.report }.to output(message).to_stdout
-    end
+    # it "tells the explorer to report" do
+    #   expect(explorer).to receive(:report) { { east: 3, north: 3, direction: "NORTH" } }
+    #   message = "Explorer is currently at (3, 3) and is facing NORTH\n"
+    #   expect { subject.report }.to output(message).to_stdout
+    # end
 
     it "has placed the explore" do
       expect(subject.explorer_placed?).to eq(true)

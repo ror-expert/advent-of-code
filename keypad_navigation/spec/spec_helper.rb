@@ -5,7 +5,7 @@ require "keypad_navigation/explorer"
 require "keypad_navigation/simulator"
 require "keypad_navigation/command"
 require "keypad_navigation/cli"
-require "keypad_navigation/input_converter"
+# require "keypad_navigation/input_converter"
 require "keypad_navigation"
 
 RSpec.configure do |config|

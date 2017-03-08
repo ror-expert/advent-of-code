@@ -71,6 +71,34 @@ describe KeypadNavigation::Explorer do
     it "next move is to (0, 1)" do
       expect(subject.next_move).to eq ([0, 1])
     end
+
+    it "turns north" do
+      subject.turn_north
+      expect(subject.direction).to eq("NORTH")
+    end
+
+    it "turns east" do
+      subject.turn_east
+      expect(subject.direction).to eq("EAST")
+    end
+
+    it "turns south" do
+      subject.turn_south
+      expect(subject.direction).to eq("SOUTH")
+    end
+
+    it "turns west" do
+      subject.turn_west
+      expect(subject.direction).to eq("WEST")
+    end
+
+    it "moves up on the keypad" do
+      subject.move_up
+      expect(subject.direction).to eq("NORTH")
+      expect(subject.north).to eq(1)
+      expect(subject.east).to eq(0)
+    end
+
   end
 
   context "when facing south" do
@@ -93,6 +121,26 @@ describe KeypadNavigation::Explorer do
 
     it "next move is to (0, -1)" do
       expect(subject.next_move).to eq ([0, -1])
+    end
+
+    it "turns north" do
+      subject.turn_north
+      expect(subject.direction).to eq("NORTH")
+    end
+
+    it "turns east" do
+      subject.turn_east
+      expect(subject.direction).to eq("EAST")
+    end
+
+    it "turns south" do
+      subject.turn_south
+      expect(subject.direction).to eq("SOUTH")
+    end
+
+    it "turns west" do
+      subject.turn_west
+      expect(subject.direction).to eq("WEST")
     end
   end
 
@@ -117,6 +165,26 @@ describe KeypadNavigation::Explorer do
     it "next move is to (1, 0)" do
       expect(subject.next_move).to eq ([1, 0])
     end
+
+    it "turns north" do
+      subject.turn_north
+      expect(subject.direction).to eq("NORTH")
+    end
+
+    it "turns east" do
+      subject.turn_east
+      expect(subject.direction).to eq("EAST")
+    end
+
+    it "turns south" do
+      subject.turn_south
+      expect(subject.direction).to eq("SOUTH")
+    end
+
+    it "turns west" do
+      subject.turn_west
+      expect(subject.direction).to eq("WEST")
+    end
   end
 
   context "when facing west" do
@@ -140,5 +208,26 @@ describe KeypadNavigation::Explorer do
     it "next move is to (-1, 0)" do
       expect(subject.next_move).to eq([-1, 0])
     end
+
+    it "turns north" do
+      subject.turn_north
+      expect(subject.direction).to eq("NORTH")
+    end
+
+    it "turns east" do
+      subject.turn_east
+      expect(subject.direction).to eq("EAST")
+    end
+
+    it "turns south" do
+      subject.turn_south
+      expect(subject.direction).to eq("SOUTH")
+    end
+
+    it "turns west" do
+      subject.turn_west
+      expect(subject.direction).to eq("WEST")
+    end
   end
+
 end

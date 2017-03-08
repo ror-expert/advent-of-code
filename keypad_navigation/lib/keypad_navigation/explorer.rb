@@ -2,7 +2,7 @@ module KeypadNavigation
 
   class Explorer
     DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
-    attr_reader :east, :north, :direction
+    attr_reader :east, :north, :direction, :keypad
 
     def initialize(east = 0, north = 0, direction = "NORTH")
       @east = east
@@ -26,6 +26,7 @@ module KeypadNavigation
       @north -= 1
     end
 
+
     def move
       send("move_#{@direction.downcase}")
     end
@@ -42,6 +43,54 @@ module KeypadNavigation
 
     def turn_right
       turn(:right)
+    end
+
+    def turn_north
+      case @direction
+      when "EAST"
+        turn(:left)
+      when "SOUTH"
+        turn(:left)
+        turn(:left)
+      when "WEST"
+        turn(:right)
+      end
+    end
+
+    def turn_east
+      case @direction
+      when "SOUTH"
+        turn(:left)
+      when "WEST"
+        turn(:left)
+        turn(:left)
+      when "NORTH"
+        turn(:right)
+      end
+    end
+
+    def turn_south
+      case @direction
+      when "WEST"
+        turn(:left)
+      when "NORTH"
+        turn(:left)
+        turn(:left)
+      when "EAST"
+        turn(:right)
+      end
+    end
+
+    def turn_west
+      case @direction
+      when "NORTH"
+        turn(:left)
+      when "EAST"
+        turn(:left)
+        turn(:left)
+      when "SOUTH"
+        turn(:right)
+      end
     end
 
     def report
@@ -64,6 +113,27 @@ module KeypadNavigation
         [@east - 1, @north]
       end
     end
+
+    def move_up
+      turn_north
+      move
+    end
+
+    def move_down
+      turn_south
+      move
+    end
+
+    def move_left
+      turn_west
+      move
+    end
+
+    def move_right
+      turn_east
+      move
+    end
+
 
   end
 end

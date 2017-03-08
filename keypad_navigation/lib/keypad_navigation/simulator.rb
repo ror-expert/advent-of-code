@@ -62,7 +62,6 @@ module KeypadNavigation
       puts ""
       puts ""
 
-
       @locations_visited.push(current_location)
 
     end
