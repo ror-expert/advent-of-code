@@ -52,8 +52,9 @@ module CityNavigation
           temp_array = Array.new(element) {"MOVE"}
           temp_array.each do |move_string|
             converted_city_directions.push(move_string)
+            converted_city_directions.push("REPORT")
           end
-          converted_city_directions.push("REPORT")
+          # converted_city_directions.push("REPORT")
         end
       end
 

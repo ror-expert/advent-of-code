@@ -1,9 +1,12 @@
 module CityNavigation
   class Simulator
+
+
     attr_reader :explorer
 
     def initialize(city_grid)
       @city_grid = city_grid
+      @locations_visited = [[0,0]]
     end
 
     def place(east, north, facing)
@@ -32,12 +35,36 @@ module CityNavigation
     end
 
     def report
+
+      # locations_visited = @locations_visited
+
+      # puts "These are the locations visited: #{@locations_visited}"
+
       return unless explorer_placed?
       position = explorer.report
-      puts "Explorer is currently at (#{position[:east]}, #{position[:north]}) and is facing #{position[:direction]}"    
+
+      puts "Explorer is currently at (#{position[:east]}, #{position[:north]}) and is facing #{position[:direction]}"
+
+      current_location = [position[:east], position[:north]]
+
+      if @locations_visited.count(current_location) >= 1
+        puts "You have been to this location before: #{current_location}"
+        puts "You have been here this many times: #{@locations_visited.count(current_location)}"
+      else
+        puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times"
+      end
+
       final_position = explorer.report
       distance_from_start = final_position[:east].abs + final_position[:north].abs
-      puts "Easter Bunny HQ is #{distance_from_start} blocks away"
+      puts "This address is #{distance_from_start} blocks away from the starting point"
+      puts "Here are all the places visited:"
+      print @locations_visited
+      puts ""
+      puts ""
+
+
+      @locations_visited.push(current_location)
+
     end
 
     def invalid(command)

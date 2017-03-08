@@ -26,10 +26,6 @@ module CityNavigation
       @north -= 1
     end
 
-    # def position
-    #   @east
-    # end
-
     def move
       send("move_#{@direction.downcase}")
     end
