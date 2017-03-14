@@ -97,4 +97,76 @@ describe KeypadNavigation::Simulator do
     end
   end
 
+  context "explorer placed at top right of keypad (3) facing north" do
+    before do
+      subject.place(1, 1, "NORTH")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (1, 1) and is facing NORTH\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at top right of keypad (3) facing west" do
+    before do
+      subject.place(1, 1, "EAST")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (1, 1) and is facing EAST\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at bottom right of keypad (9) facing north" do
+    before do
+      subject.place(1, -1, "SOUTH")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (1, -1) and is facing SOUTH\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at bottom right of keypad (9) facing east" do
+    before do
+      subject.place(1, -1, "EAST")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (1, -1) and is facing EAST\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at bottom left of keypad (7) facing north" do
+    before do
+      subject.place(-1, -1, "SOUTH")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (-1, -1) and is facing SOUTH\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at bottom left of keypad (7) facing west" do
+    before do
+      subject.place(-1, -1, "WEST")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (-1, -1) and is facing WEST\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
 end
