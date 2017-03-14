@@ -103,31 +103,31 @@ module KeypadNavigation
       }
     end
 
-    def keypad_report
-
-      if @north == 1 && @east == -1
-        keypad: "ONE"
-      elsif @north == 1 && @east == 0
-        keypad: "TWO"
-      elsif @north == 1 && @east == 1
-        keypad: "THREE"
-      elsif @north == 0 && @east == -1
-        keypad: "FOUR"
-      elsif @north == 0 && @east == 0
-        keypad: "FIVE"
-      elsif @north == 0 && @east == 1
-        keypad: "SIX"
-      elsif @north == -1 && @east == -1
-        keypad: "SEVEN"
-      elsif @north == -1 && @east == 0
-        keypad: "EIGHT"
-      elsif @north == -1 && @east == 1
-        keypad: "NINE"
-      else
-        keypad: "ERROR ON KEYPAD"
-      end
-
-    end
+    # def keypad_report
+    #
+    #   if @north == 1 && @east == -1
+    #     keypad: "ONE"
+    #   elsif @north == 1 && @east == 0
+    #     keypad: "TWO"
+    #   elsif @north == 1 && @east == 1
+    #     keypad: "THREE"
+    #   elsif @north == 0 && @east == -1
+    #     keypad: "FOUR"
+    #   elsif @north == 0 && @east == 0
+    #     keypad: "FIVE"
+    #   elsif @north == 0 && @east == 1
+    #     keypad: "SIX"
+    #   elsif @north == -1 && @east == -1
+    #     keypad: "SEVEN"
+    #   elsif @north == -1 && @east == 0
+    #     keypad: "EIGHT"
+    #   elsif @north == -1 && @east == 1
+    #     keypad: "NINE"
+    #   else
+    #     keypad: "ERROR ON KEYPAD"
+    #   end
+    #
+    # end
 
     def next_move
       case @direction

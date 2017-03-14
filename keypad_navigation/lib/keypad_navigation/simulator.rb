@@ -92,14 +92,14 @@ module KeypadNavigation
 
     end
 
-    def keypad_report
-      return unless explorer_placed?
-      keypad_position = explorer.keypad_report
-
-      puts "Explorer is currently on key number: #{keypad_position[:keypad]}"
-      end
-
-    end
+    # def keypad_report
+    #   return unless explorer_placed?
+    #   keypad_position = explorer.keypad_report
+    #
+    #   puts "Explorer is currently on key number: #{keypad_position[:keypad]}"
+    #   end
+    #
+    # end
 
     def invalid(command)
       puts "'#{command.strip}' is an invalid command"
