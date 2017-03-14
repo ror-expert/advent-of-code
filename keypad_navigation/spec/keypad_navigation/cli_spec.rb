@@ -8,12 +8,30 @@ describe KeypadNavigation::CLI do
       path = File.dirname(__FILE__) + "/../fixtures/commands_test.txt"
       commands = subject.load_commands(path)
       expect(commands).to eq([
-        [:place, 0, 0, "NORTH"],
-        [:move],
-        [:turn_right],
-        [:turn_left],
+        [:place, 0,0, "NORTH"],
+        [:move_up],
+        [:move_left],
+        [:move_left],
+        [:report],
+        [:move_right],
+        [:move_right],
+        [:move_down],
+        [:move_down],
+        [:move_down],
+        [:report],
+        [:move_left],
+        [:move_up],
+        [:move_right],
+        [:move_down],
+        [:move_left],
+        [:report],
+        [:move_up],
+        [:move_up],
+        [:move_up],
+        [:move_up],
+        [:move_down],
         [:report]
-        ])
+      ])
     end
   end
 

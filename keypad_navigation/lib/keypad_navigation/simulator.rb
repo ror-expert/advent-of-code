@@ -47,20 +47,20 @@ module KeypadNavigation
 
       current_location = [position[:east], position[:north]]
 
-      if @locations_visited.count(current_location) >= 1
-        puts "You have been to this location before: #{current_location}"
-        puts "You have been here this many times: #{@locations_visited.count(current_location)}"
-      else
-        puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times."
-      end
+      # if @locations_visited.count(current_location) >= 1
+      #   puts "You have been to this location before: #{current_location}"
+      #   puts "You have been here this many times: #{@locations_visited.count(current_location)}"
+      # else
+      #   puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times."
+      # end
 
-      final_position = explorer.report
-      distance_from_start = final_position[:east].abs + final_position[:north].abs
-      puts "This address is #{distance_from_start} blocks away from the starting point"
-      puts "Here are all the places visited:"
-      print @locations_visited
-      puts ""
-      puts ""
+      # final_position = explorer.report
+      # distance_from_start = final_position[:east].abs + final_position[:north].abs
+      # puts "This address is #{distance_from_start} blocks away from the starting point"
+      # puts "Here are all the places visited:"
+      # print @locations_visited
+      # puts ""
+      # puts ""
 
       @locations_visited.push(current_location)
 

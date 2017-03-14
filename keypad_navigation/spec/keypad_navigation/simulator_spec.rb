@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe KeypadNavigation::Simulator do
-  let(:keypad_grid) { KeypadNavigation::KeypadGrid.new(20, 20) }
+  let(:keypad_grid) { KeypadNavigation::KeypadGrid.new(1, 1) }
   subject { KeypadNavigation::Simulator.new(keypad_grid) }
 
   it "places the explorer on to a valid position" do
@@ -14,7 +14,7 @@ describe KeypadNavigation::Simulator do
 
   it "cannot place the explorer on to an invalid position" do
     expect(KeypadNavigation::Explorer).not_to receive(:new)
-    subject.place(-25, 100, "NORTH")
+    subject.place(-2, 1, "WEST")
     expect(subject.explorer).to be_nil
   end
 
@@ -73,14 +73,26 @@ describe KeypadNavigation::Simulator do
     end
   end
 
-  context "explorer placed at keypad boundary" do
+  context "explorer placed at top left of keypad (1) facing north" do
     before do
-      subject.place(0, 20, "NORTH")
+      subject.place(-1, 1, "NORTH")
     end
 
     it "cannot move past the keypad boundary" do
       subject.move
-      message = "Explorer is currently at (0, 20) and is facing NORTH\n"
+      message = "Explorer is currently at (-1, 1) and is facing NORTH\n"
+      expect { subject.report}.to output(message).to_stdout
+    end
+  end
+
+  context "explorer placed at top left of keypad (1) facing west" do
+    before do
+      subject.place(-1, 1, "WEST")
+    end
+
+    it "cannot move past the keypad boundary" do
+      subject.move
+      message = "Explorer is currently at (-1, 1) and is facing WEST\n"
       expect { subject.report}.to output(message).to_stdout
     end
   end

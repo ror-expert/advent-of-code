@@ -10,6 +10,14 @@ module KeypadNavigation
         [:turn_left]
       when /\ARIGHT\Z/
         [:turn_right]
+      when /\AMOVE_UP\Z/
+        [:move_up]
+      when /\AMOVE_DOWN\Z/
+        [:move_down]
+      when /\AMOVE_LEFT\Z/
+        [:move_left]
+      when /\AMOVE_RIGHT\Z/
+        [:move_right]
       when /\AREPORT\Z/
         [:report]
       else
