@@ -7,23 +7,38 @@ module KeypadNavigation
 
     def valid_location?(east, north)
 
-      (-@longitude..@longitude).cover?(north) && (-@latitude..@latitude).cover?(east)
-      # (-@latitude...@latitude).cover?(-east)
-      # (-@longitude...@longitude).cover?(-north)
+      ## Part 1 of Day 2
+      (-@longitude..@longitude).cover?(north) && (-@latitude..@latitude).cover?(east) &&
+      ## Part 2 of Day 2
+      (north.abs + east.abs) < 3
 
-      # puts "The latitude range: #{(-@latitude..@latitude)}"
-      # puts "The longitude range: #{(-@longitude..@longitude)}"
-      #
-      # puts "Testing latitude of (#{east}, #{north}) #{(-@latitude..@latitude).cover?(east)}"
-      # puts "Testing longitude of (#{east}, #{north}): #{(-@longitude..@longitude).cover?(north)}"
+      # puts "This is the absolute north: #{north.abs}"
+      # puts "This is absolute east: #{east.abs}"
+      # puts "This is the longitude test: #{(-@longitude..@longitude).cover?(north)}"
+      # puts "This is the latitude test: #{(-@latitude..@latitude).cover?(east)}"
+      # puts "This is to test whether the aggregate values are within range: #{(north.abs + east.abs) < 3}"
 
     end
+
+    # def valid_location?(east, north)
+    #
+    #   (-@longitude..@longitude).cover?(north) && (-@latitude..@latitude).cover?(east)
+    #
+    # end
   end
 end
 
 
-testing = KeypadNavigation::KeypadGrid.new(1,1)
-testing.valid_location?(-2,1)
-testing.valid_location?(-0,-2)
-testing.valid_location?(-1,-2)
+testing = KeypadNavigation::KeypadGrid.new(2,2)
+
+testing.valid_location?(0,2)
+testing.valid_location?(0,1)
+testing.valid_location?(0,0)
+testing.valid_location?(0,-1)
+testing.valid_location?(0,-2)
+
+testing.valid_location?(-1,2)
 testing.valid_location?(-1,1)
+testing.valid_location?(-1,0)
+testing.valid_location?(-1,-1)
+testing.valid_location?(-1,-2)

@@ -11,7 +11,7 @@ module KeypadNavigation
     end
 
     def place(east, north, facing)
-      return unless @keypad_grid.valid_location?(east, north)
+      return unless @keypad_grid.valid_location?(east_to.i, north_to.i)
       @explorer = Explorer.new(east, north, facing)
     end
 
@@ -92,14 +92,6 @@ module KeypadNavigation
 
     end
 
-    # def keypad_report
-    #   return unless explorer_placed?
-    #   keypad_position = explorer.keypad_report
-    #
-    #   puts "Explorer is currently on key number: #{keypad_position[:keypad]}"
-    #   end
-    #
-    # end
 
     def invalid(command)
       puts "'#{command.strip}' is an invalid command"
