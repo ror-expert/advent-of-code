@@ -2,6 +2,8 @@ module KeypadNavigation
 
   class Explorer
     DIRECTIONS = ["NORTH", "EAST", "SOUTH", "WEST"]
+    KEYPAD_NUMBERS = ["ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"]
+
     attr_reader :east, :north, :direction, :keypad
 
     def initialize(east = 0, north = 0, direction = "NORTH")
@@ -101,6 +103,32 @@ module KeypadNavigation
       }
     end
 
+    def keypad_report
+
+      if @north == 1 && @east == -1
+        keypad: "ONE"
+      elsif @north == 1 && @east == 0
+        keypad: "TWO"
+      elsif @north == 1 && @east == 1
+        keypad: "THREE"
+      elsif @north == 0 && @east == -1
+        keypad: "FOUR"
+      elsif @north == 0 && @east == 0
+        keypad: "FIVE"
+      elsif @north == 0 && @east == 1
+        keypad: "SIX"
+      elsif @north == -1 && @east == -1
+        keypad: "SEVEN"
+      elsif @north == -1 && @east == 0
+        keypad: "EIGHT"
+      elsif @north == -1 && @east == 1
+        keypad: "NINE"
+      else
+        keypad: "ERROR ON KEYPAD"
+      end
+
+    end
+
     def next_move
       case @direction
       when "NORTH"
@@ -112,6 +140,7 @@ module KeypadNavigation
       when "WEST"
         [@east - 1, @north]
       end
+
     end
 
     def move_up

@@ -7,6 +7,7 @@ module KeypadNavigation
     def initialize(keypad_grid)
       @keypad_grid = keypad_grid
       @locations_visited = [[0,0]]
+
     end
 
     def place(east, north, facing)
@@ -34,11 +35,51 @@ module KeypadNavigation
       explorer.turn_right
     end
 
+    def turn_north
+      return unless explorer_placed?
+      explorer.turn_north
+    end
+
+    def turn_south
+      return unless explorer_placed?
+      explorer.turn_south
+    end
+
+    def turn_east
+      return unless explorer_placed?
+      explorer.turn_east
+    end
+
+    def turn_west
+      return unless explorer_placed?
+      explorer.turn_west
+    end
+
+    def move_up
+      return unless explorer_placed?
+      return unless @keypad_grid.valid_location?(*explorer.next_move)
+      explorer.move_up
+    end
+
+    def move_down
+      return unless explorer_placed?
+      return unless @keypad_grid.valid_location?(*explorer.next_move)
+      explorer.move_down
+    end
+
+    def move_left
+      return unless explorer_placed?
+      return unless @keypad_grid.valid_location?(*explorer.next_move)
+      explorer.move_left
+    end
+
+    def move_right
+      return unless explorer_placed?
+      return unless @keypad_grid.valid_location?(*explorer.next_move)
+      explorer.move_right
+    end
+
     def report
-
-      # locations_visited = @locations_visited
-
-      # puts "These are the locations visited: #{@locations_visited}"
 
       return unless explorer_placed?
       position = explorer.report
@@ -47,22 +88,16 @@ module KeypadNavigation
 
       current_location = [position[:east], position[:north]]
 
-      # if @locations_visited.count(current_location) >= 1
-      #   puts "You have been to this location before: #{current_location}"
-      #   puts "You have been here this many times: #{@locations_visited.count(current_location)}"
-      # else
-      #   puts "You have NOT been here before: #{current_location}, i.e. #{@locations_visited.count(current_location)} times."
-      # end
+          @locations_visited.push(current_location)
 
-      # final_position = explorer.report
-      # distance_from_start = final_position[:east].abs + final_position[:north].abs
-      # puts "This address is #{distance_from_start} blocks away from the starting point"
-      # puts "Here are all the places visited:"
-      # print @locations_visited
-      # puts ""
-      # puts ""
+    end
 
-      @locations_visited.push(current_location)
+    def keypad_report
+      return unless explorer_placed?
+      keypad_position = explorer.keypad_report
+
+      puts "Explorer is currently on key number: #{keypad_position[:keypad]}"
+      end
 
     end
 

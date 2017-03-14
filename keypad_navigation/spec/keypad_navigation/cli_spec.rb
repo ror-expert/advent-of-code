@@ -5,7 +5,7 @@ describe KeypadNavigation::CLI do
 
   context "load commands" do
     it "loads commands from a file" do
-      path = File.dirname(__FILE__) + "/../fixtures/commands_test.txt"
+      path = File.dirname(__FILE__) + "/../fixtures/spec_converted_keypad_directions.txt"
       commands = subject.load_commands(path)
       expect(commands).to eq([
         [:place, 0,0, "NORTH"],

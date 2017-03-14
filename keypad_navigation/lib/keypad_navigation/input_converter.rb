@@ -7,13 +7,17 @@ module KeypadNavigation
 
     def convert_directions
 
+      raw_input = @raw_input
+      output_file = File.absolute_path("converted_keypad_directions.txt")
+
       directions = ["U", "D", "L", "R"]
+
+      converted_keypad_directions = ["PLACE 0,0,NORTH"]
 
       line_counter = 0
 
       instruction_counter = Hash.new
 
-      raw_input = @raw_input
 
       raw_input.each do |line|
         puts "This is line number #{line_counter}"
@@ -24,9 +28,60 @@ module KeypadNavigation
         line_counter += 1
         puts ""
 
-        line.each do |element|
+        string_line = line.to_str
+        split_string_line = string_line.split("")
 
-          puts element
+        puts "This is the split: #{split_string_line}"
+
+        split_string_line.each do |element|
+
+          case element
+          when "U"
+            converted_keypad_directions.push("TURN_NORTH")
+            converted_keypad_directions.push("MOVE")
+            # converted_keypad_directions.push("REPORT")
+          when "D"
+            converted_keypad_directions.push("TURN_SOUTH")
+            converted_keypad_directions.push("MOVE")
+            # converted_keypad_directions.push("REPORT")
+          when "L"
+            converted_keypad_directions.push("TURN_WEST")
+            converted_keypad_directions.push("MOVE")
+            # converted_keypad_directions.push("REPORT")
+          when "R"
+            converted_keypad_directions.push("TURN_EAST")
+            converted_keypad_directions.push("MOVE")
+            # converted_keypad_directions.push("REPORT")
+          when "\n"
+            converted_keypad_directions.push("REPORT")
+            # converted_keypad_directions.push("REPORT")
+          end
+        end
+      end
+
+      puts "These are the directions: #{converted_keypad_directions}"
+
+
+      f = open(output_file, "w")
+
+      converted_keypad_directions.each do |command|
+        f.write(command + "\n")
+      end
+
+
+
+
+
+
+
+
+
+    end
+  end
+end
+
+
+
           # case element
           # when "U"
           #   puts "MOVE UP"
@@ -39,8 +94,6 @@ module KeypadNavigation
           # when "\n"
           #   puts "REPORT"
           # end
-        end
-      end
 
       # puts "#{raw_input.to_str}"
       # end
@@ -57,9 +110,6 @@ module KeypadNavigation
 
 
       # puts "This is the raw input: #{analyse_input}"
-    end
-  end
-end
 
 
     #
