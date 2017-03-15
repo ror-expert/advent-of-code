@@ -74,7 +74,7 @@ end
 
 
 
-testing_file = (File.absolute_path("spec/fixtures/commands_test_raw.txt"))
+testing_file = (File.absolute_path("spec/fixtures/commands.txt"))
 
 testing = KeypadNavigation::InputConverter.new(testing_file)
 testing.convert_directions
