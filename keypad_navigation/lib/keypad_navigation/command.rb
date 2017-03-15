@@ -2,7 +2,7 @@ module KeypadNavigation
   class Command
     def self.process(command)
       case command
-      when /\APLACE (?<x>\d+),(?<y>\d+),(?<direction>\w+)\Z/
+      when /\APLACE (?<x>\D\d+),(?<y>\d+),(?<direction>\w+)\Z/
         [:place, $1.to_i, $2.to_i, $3]
       when /\AMOVE\Z/
         [:move]

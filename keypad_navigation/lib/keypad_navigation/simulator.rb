@@ -11,7 +11,7 @@ module KeypadNavigation
     end
 
     def place(east, north, facing)
-      return unless @keypad_grid.valid_location?(east_to.i, north_to.i)
+      return unless @keypad_grid.valid_location?(east.to_i, north.to_i)
       @explorer = Explorer.new(east, north, facing)
     end
 

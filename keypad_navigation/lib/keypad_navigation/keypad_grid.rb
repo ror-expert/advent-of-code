@@ -29,16 +29,16 @@ module KeypadNavigation
 end
 
 
-testing = KeypadNavigation::KeypadGrid.new(2,2)
-
-testing.valid_location?(0,2)
-testing.valid_location?(0,1)
-testing.valid_location?(0,0)
-testing.valid_location?(0,-1)
-testing.valid_location?(0,-2)
-
-testing.valid_location?(-1,2)
-testing.valid_location?(-1,1)
-testing.valid_location?(-1,0)
-testing.valid_location?(-1,-1)
-testing.valid_location?(-1,-2)
+# testing = KeypadNavigation::KeypadGrid.new(2,2)
+#
+# testing.valid_location?(0,2)
+# testing.valid_location?(0,1)
+# testing.valid_location?(0,0)
+# testing.valid_location?(0,-1)
+# testing.valid_location?(0,-2)
+#
+# testing.valid_location?(-1,2)
+# testing.valid_location?(-1,1)
+# testing.valid_location?(-1,0)
+# testing.valid_location?(-1,-1)
+# testing.valid_location?(-1,-2)

@@ -3,7 +3,7 @@ module KeypadNavigation
     attr_reader :simulator
 
     def initialize()
-      keypad_grid = KeypadNavigation::KeypadGrid.new(1,1)
+      keypad_grid = KeypadNavigation::KeypadGrid.new(2,2)
       @simulator = KeypadNavigation::Simulator.new(keypad_grid)
     end
 
