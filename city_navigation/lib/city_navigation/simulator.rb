@@ -58,9 +58,9 @@ module CityNavigation
       distance_from_start = final_position[:east].abs + final_position[:north].abs
       puts "This address is #{distance_from_start} blocks away from the starting point"
       puts "Here are all the places visited:"
-      print @locations_visited
-      puts ""
-      puts ""
+      # print @locations_visited
+      # puts ""
+      # puts ""
 
 
       @locations_visited.push(current_location)
