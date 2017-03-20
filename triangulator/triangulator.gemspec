@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["clockworkpc"]
   spec.email         = ["clockworkpc@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Day 3 of Advent of Code}
+  spec.description   = %q{Day 3 of Advent of Code: Process raw input of triangle dimensions for validation of conformity to specifications}
+  spec.homepage      = "https://github.com/clockworkpc/advent-of-code"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
