@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "triangulator"
+require "triangulator/input_converter.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

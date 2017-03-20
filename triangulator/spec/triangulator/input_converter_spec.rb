@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CityNavigation::InputConverter do
+describe Triangulator::InputConverter do
 
   let(:raw_input) { File.read(File.absolute_path("spec/fixtures/testing_raw_input.txt"))}
 
