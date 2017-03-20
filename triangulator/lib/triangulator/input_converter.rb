@@ -8,37 +8,72 @@ module Triangulator
     def convert_measurements
 
       raw_input = @raw_input
-      machine_readable = Array.new
+      machine_readable = Hash.new
+      triangle_counter = 0
 
       output_file = File.absolute_path("converted_triangle_measurements.txt")
       f = open(output_file, "w")
       puts "This is what the raw input looks like at the moment: \n#{raw_input}"
 
-      split_raw_input = raw_input.split(%r{ \s*})
+      split_raw_input = raw_input.split("\n")
       puts "This is what the split raw_input looks like: \n #{split_raw_input}"
 
-      split_raw_input.each do |line|
-        if line.match("\n")
-          puts "Linebreak!"
-          split_line = line.to_s.split("\n")
-          split_line.to_a.each do |element|
-            puts "This is the element: #{element}"
-          end
-        else
-
-
-        end
+      split_raw_input.each do |element|
+        stripped_element = element.split(%r{ \s*})
+        puts "This is the stripped element: #{stripped_element}"
+        machine_readable["T#{triangle_counter}"] = stripped_element
+        triangle_counter += 1
       end
 
+      puts "This is machine readable:"
+      puts machine_readable
+      puts "This is the hash length: #{machine_readable.length}"
 
+      machine_readable.each do |key, array|
 
+        side_a = array[0].to_i
+        side_b = array[1].to_i
+        side_c = array[2].to_i
 
-
+        if side_a + side_b > side_c
+          puts "Valid triangle: side_a (#{side_a}) + side_b (#{side_b}) > side_c #{side_c}"
+        elsif side_b + side_c > side_a
+          puts "Valid triangle: b + c > a"
+        elsif side_a + side_c > side_b
+          puts "Valid triangle: a + c > b"
+        else
+          puts "Invalid triangle!"
+        end
+      end
     end
-
   end
 end
 
+
+
+
+
+
+
+
+# split_raw_input.each do |element|
+#   split_element = element.to_s.split(%r{ \s*})
+#   puts "This is the split element: #{split_element}"
+# end
+
+
+
+# split_raw_input.each do |line|
+#   machine_readable.push(line)
+#   #   end
+# end
+#
+#
+# if line.match("\n")
+#   puts "Linebreak!"
+#   split_line = line.to_s.split("\n")
+#   split_line.to_a.each do |element|
+#     puts "This is the element: #{element}"
 
 # module CityNavigation
 #   class InputConverter
