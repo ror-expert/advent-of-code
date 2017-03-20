@@ -1,6 +1,41 @@
 module Triangulator
   class InputConverter
 
+    def initialize(raw_input)
+      @raw_input = raw_input
+    end
+
+    def convert_measurements
+
+      raw_input = @raw_input
+      machine_readable = Array.new
+
+      output_file = File.absolute_path("converted_triangle_measurements.txt")
+      f = open(output_file, "w")
+      puts "This is what the raw input looks like at the moment: \n#{raw_input}"
+
+      split_raw_input = raw_input.split(%r{ \s*})
+      puts "This is what the split raw_input looks like: \n #{split_raw_input}"
+
+      split_raw_input.each do |line|
+        if line.match("\n")
+          puts "Linebreak!"
+          split_line = line.to_s.split("\n")
+          split_line.to_a.each do |element|
+            puts "This is the element: #{element}"
+          end
+        else
+
+
+        end
+      end
+
+
+
+
+
+    end
+
   end
 end
 
