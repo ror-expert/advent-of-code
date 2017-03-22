@@ -3,3 +3,4 @@ require 'triangulator'
 
 triangle_counter = Triangulator::TriangleCounter.new(ARGV[0])
 triangle_counter.count_valid_triangles
+triangle_counter.vertical_triangle_counter
