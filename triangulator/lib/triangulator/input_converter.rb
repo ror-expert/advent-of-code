@@ -9,7 +9,7 @@ module Triangulator
 
       raw_input = File.read(@raw_input)
 
-      puts "This is the raw input: #{raw_input}"
+      # puts "This is the raw input: #{raw_input}"
 
       machine_readable = Hash.new
       triangle_counter = 0
