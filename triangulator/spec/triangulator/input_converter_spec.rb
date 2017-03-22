@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Triangulator::InputConverter do
 
-  let(:raw_input) { File.read(File.absolute_path("spec/fixtures/test_raw_input.txt"))}
+  let(:raw_input) { (File.absolute_path("spec/fixtures/test_raw_input.txt"))}
 
   subject { Triangulator::InputConverter.new(raw_input)}
 

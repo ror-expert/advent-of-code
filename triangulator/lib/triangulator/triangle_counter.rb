@@ -6,11 +6,14 @@ module Triangulator
 
     def count_valid_triangles
 
+      import_input = File.read(@machine_readable_input)
+      # puts "This is the imported input: #{import_input}"
+
       triangle_hash = Hash.new
       triangle_hash_counter = 0
       valid_triangle_counter = 0
 
-      input_as_array = @machine_readable_input.split("\n")
+      input_as_array = import_input.split("\n")
 
       input_as_array.each do |element|
 
@@ -41,6 +44,8 @@ module Triangulator
       end
 
       final_count = valid_triangle_counter
+      puts "This is the number of valid triangles: #{final_count}"
+      return final_count
 
     end
   end

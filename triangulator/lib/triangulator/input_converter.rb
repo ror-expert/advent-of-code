@@ -7,7 +7,10 @@ module Triangulator
 
     def convert_measurements
 
-      raw_input = @raw_input
+      raw_input = File.read(@raw_input)
+
+      puts "This is the raw input: #{raw_input}"
+
       machine_readable = Hash.new
       triangle_counter = 0
 
@@ -29,9 +32,10 @@ module Triangulator
 
       final_output = File.read("converted_triangle_measurements.txt")
 
-
-
-
     end
   end
 end
+
+raw_input = File.absolute_path("original_raw_input.txt")
+testing = Triangulator::InputConverter.new(raw_input)
+testing.convert_measurements
